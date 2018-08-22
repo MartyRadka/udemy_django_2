@@ -3,24 +3,32 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Word Count Page</title>
+  </head>
 
-  <title>Word Count Page</title>
-</head>
+  <body>
+    <header>
+      <a href="{% url 'about' %}">About</a>
+      <h1>Word Count Page</h1>
+    </header>
 
-<h1>Word count</h1>
+    <section class="section-info">
+      <p>This page is just for counting the words in some text. So paste your text into the box and press the buttom below. <br />Enjoy it and have a nice day :)</p>
+    </section>
 
-<nav><a href="{% url 'about' %}">About</a></nav>
-
-<form action="{% url 'count' %}">
-  <textarea cols="40" rows="10" name="fulltext"></textarea>
-  <br />
-  <input type="submit" value="Count!" />
-</form>
-
+    <section class="section-form">
+      <form action="{% url 'count' %}">
+        <textarea cols="100" rows="10" name="fulltext" placeholder="Put your text here:"></textarea>
+        <br />
+        <input type="submit" value="Count!" />
+      </form>
+    </section>
+  </body>
 </html>

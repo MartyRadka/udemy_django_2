@@ -3,29 +3,32 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-compatible" content="ie=edge">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'count.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'count.css' %}">
 
-  <title>Word Count Page</title>
-</head>
+    <title>Word Count Page</title>
+  </head>
 
-<h1>Count the words in your text</h1>
+  <body>
+    <header>
+      <h1>Count the words</h1>
+      <a href="{% url 'home' %}">Start again</a>
+    </header>
 
-<a href="{% url 'home' %}">Start again</a>
+    <section class="section-count">
+      <h2>Your text: </h2>
+        {{ fulltext }}
 
-<h2>Your text: </h2>
+      <h2>Word count: </h2>
+        <p>There is {{ totalcount }} words in your text.</p>
 
-{{ fulltext }}
-
-
-<h2>Word count: </h2>
-
-  <p>There is {{ totalcount }} words in your text.</p>
-
-  {% for word, count in sortedwords %}
-    <p>The word: "<em>{{ word }}</em>" is there {{ count }} times.</p>
-  {% endfor %}
+        {% for word, count in sortedwords %}
+          <p>The word: "<em>{{ word }}</em>" is there {{ count }} times.</p>
+        {% endfor %}
+      </section>
+  </body>
+</html>
