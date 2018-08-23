@@ -1,35 +1,21 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
+{% block header %}
+  <a href="{% url 'about' %}">About</a>
+  <h1>Word Count Page</h1>
+{% endblock %}
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% block section-info %}
+    <p>This page is just for counting the words in some text. So paste your text into the box and press the buttom below. <br />Enjoy it and have a nice day :)</p>
+{% endblock %}
 
-    <title>Word Count Page</title>
-  </head>
-
-  <body>
-    <header>
-      <a href="{% url 'about' %}">About</a>
-      <h1>Word Count Page</h1>
-    </header>
-
-    <section class="section-info">
-      <p>This page is just for counting the words in some text. So paste your text into the box and press the buttom below. <br />Enjoy it and have a nice day :)</p>
-    </section>
-
-    <section class="section-form">
-      <form action="{% url 'count' %}">
-        <textarea cols="100" rows="10" name="fulltext" placeholder="Put your text here:"></textarea>
-        <div class="section-form-input">
-          <input type="submit" value="Count!" />
-        </div>
-      </form>
-    </section>
-  </body>
-</html>
+{% block content %}
+  <section class="section-form">
+    <form action="{% url 'count' %}">
+      <textarea cols="100" rows="10" name="fulltext" placeholder="Put your text here:"></textarea>
+      <div class="section-form-input">
+        <input type="submit" value="Count!" />
+      </div>
+    </form>
+  </section>
+{% endblock %}

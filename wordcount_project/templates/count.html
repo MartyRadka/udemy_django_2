@@ -1,34 +1,20 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
+{% block header %}
+  <h1>Count the words</h1>
+  <a href="{% url 'home' %}">Start again</a>
+{% endblock %}
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-compatible" content="ie=edge">
+{% block content %}
+  <section class="section-count">
+    <h2>Your text: </h2>
+      {{ fulltext }}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <h2>Word count: </h2>
+      <p>There is {{ totalcount }} words in your text.</p>
 
-    <title>Word Count Page</title>
-  </head>
-
-  <body>
-    <header>
-      <h1>Count the words</h1>
-      <a href="{% url 'home' %}">Start again</a>
-    </header>
-
-    <section class="section-count">
-      <h2>Your text: </h2>
-        {{ fulltext }}
-
-      <h2>Word count: </h2>
-        <p>There is {{ totalcount }} words in your text.</p>
-
-        {% for word, count in sortedwords %}
-          <p>The word: "<em>{{ word }}</em>" is there {{ count }} times.</p>
-        {% endfor %}
-      </section>
-  </body>
-</html>
+      {% for word, count in sortedwords %}
+        <p>The word: "<em>{{ word }}</em>" is there {{ count }} times.</p>
+      {% endfor %}
+    </section>
+{% endblock %}
