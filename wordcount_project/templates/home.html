@@ -26,8 +26,9 @@
     <section class="section-form">
       <form action="{% url 'count' %}">
         <textarea cols="100" rows="10" name="fulltext" placeholder="Put your text here:"></textarea>
-        <br />
-        <input type="submit" value="Count!" />
+        <div class="section-form-input">
+          <input type="submit" value="Count!" />
+        </div>
       </form>
     </section>
   </body>
