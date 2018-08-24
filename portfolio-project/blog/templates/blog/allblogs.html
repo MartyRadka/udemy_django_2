@@ -34,34 +34,32 @@
     </header>
 
     <main role="main">
-
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Hi, I am Radka!</h1>
-          <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>
-            <a href="mailto:martyradka@gmail.com" class="btn btn-primary my-2">Email Me</a>
-          </p>
+          <h1 class="jumbotron-heading">Welcome to my blog</h1>
         </div>
       </section>
 
       <section class="album py-5 bg-light">
         <div class="container">
           <div class="row">
-            {% for job in jobs.all %}
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                  <img class="card-img-top" src="{{ job.image.url }}" />
-                  <div class="card-body">
-                    <p class="card-text">{{ job.summary }}</p>
-                  </div>
+            <h2>Latest Blogs</h2>
+            <hr />
+            {% for blog in blogs.all %}
+              <div class="card mb-4 box-shadow">
+                <h3 class="card-title pt-2 pl-2">{{ blog.title }}</h3>
+                <p><small class="text-muted pl-2">{{ blog.publication_date }}</small></p>
+                <img class="card-img-top" src="{{ blog.image.url }}" />
+                <div class="card-body">
+                  <p class="card-text">{{ blog.text }}</p>
                 </div>
               </div>
             {% endfor %}
+
           </div>
+
         </div>
       </section>
-
     </main>
 
     <footer class="text-muted bg-dark">
