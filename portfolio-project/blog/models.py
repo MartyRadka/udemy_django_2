@@ -8,5 +8,13 @@ class Blog(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='images/')
 
-    # def __str__(self):
-    #     return self.title
+    def __str__(self):
+        return self.title
+
+    def publication_date_custom(self):
+        """Return customized date"""
+        return self.publication_date.strftime('%B %-d %Y')
+
+    def summary(self):
+        """Return only fist 100 lettres from text"""
+        return self.text[:100]
