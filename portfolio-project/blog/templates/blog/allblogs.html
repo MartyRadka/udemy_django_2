@@ -1,3 +1,4 @@
+{% load staticfiles %}
 
 <!doctype html>
 <html lang="en">
@@ -24,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
             <a class="nav-item nav-link" href="#">Contact</a>
           </div>
         </div>
@@ -45,7 +46,7 @@
             <hr />
             {% for blog in blogs.all %}
               <div class="card mb-4 box-shadow">
-                <h3 class="card-title pt-2 pl-2">{{ blog.title }}</h3>
+                <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
                 <p><small class="text-muted pl-2">{{ blog.publication_date_custom }}</small></p>
                 <img class="card-img-top .img-fluid" src="{{ blog.image.url }}" />
                 <div class="card-body">
