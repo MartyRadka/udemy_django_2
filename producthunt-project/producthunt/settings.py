@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'product_hunt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',      # postgreSQL
+        'NAME': 'portfoliodb',                          # or path to sqlite3
+        'USER': user_postgresql,                             # not used for sqlite3
+        'PASSWORD': password_postgresql,    # not used for sqlite3
+        'HOST': 'localhost',                            # set to 127.0.0.1/localhost
+        'PORT': '5432',                                 # port of postgreSQL
     }
 }
 
