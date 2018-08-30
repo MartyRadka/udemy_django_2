@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2+^0zt_ofg62q(yujukit98silhp-+d8bj$1an4&c_h9sp6xjy'
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'product_hunt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',      # postgreSQL
-        'NAME': 'portfoliodb',                          # or path to sqlite3
-        'USER': user_postgresql,                             # not used for sqlite3
-        'PASSWORD': password_postgresql,    # not used for sqlite3
+        'NAME': 'producthuntdb',                        # or path to sqlite3
+        'USER': user_postgresql,                        # not used for sqlite3
+        'PASSWORD': password_postgresql,                # not used for sqlite3
         'HOST': 'localhost',                            # set to 127.0.0.1/localhost
         'PORT': '5432',                                 # port of postgreSQL
     }
